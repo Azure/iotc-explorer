@@ -1,0 +1,66 @@
+{
+    "name": "iotc-explorer",
+    "description": "CLI for interacting with Azure IoT Central devices and applications",
+    "version": "1.0.0",
+    "author": "Microsoft",
+    "license": "MIT",
+    "main": "./dist/iotc-explorer.js",
+    "engines": {
+        "node": ">=8.0.0"
+    },
+    "bin": {
+        "iotc-explorer": "dist/iotc-explorer.js"
+    },
+    "keywords": [
+        "iotcentral",
+        "iot",
+        "azure",
+        "device",
+        "monitor"
+    ],
+    "scripts": {
+        "commit": "commit",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "clean": "rimraf dist",
+        "lint": "tslint --project tsconfig.json -e \"**/*.json\" --fix",
+        "prebuild": "npm run clean && npm run lint",
+        "build": "tsc",
+        "build-verify": "npm run clean && tslint --project tsconfig.json -e \"**/*.json\" && tsc",
+        "test": "npm run build-verify",
+        "prepare": "npm t",
+        "watch": "tsc -w",
+        "start": "./dist/iotc-explorer.js",
+        "release": "standard-version"
+    },
+    "dependencies": {
+        "axios": "^0.18.0",
+        "azure-event-hubs": "^0.2.6",
+        "azure-iothub": "^1.7.3",
+        "conf": "^2.0.0",
+        "get-caller-file": "^2.0.0",
+        "inquirer": "^6.2.0",
+        "prettyjson": "^1.2.1",
+        "source-map-support": "^0.5.6",
+        "string-width": "^2.1.1",
+        "yargs": "^12.0.1"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^7.1.2",
+        "@commitlint/config-conventional": "^7.1.2",
+        "@commitlint/prompt-cli": "^7.1.2",
+        "@commitlint/travis-cli": "^7.1.2",
+        "@types/async-lock": "^1.1.0",
+        "@types/conf": "^1.4.0",
+        "@types/inquirer": "0.0.43",
+        "@types/node": "^8.10.29",
+        "@types/prettyjson": "0.0.28",
+        "@types/string-width": "^2.0.0",
+        "@types/yargs": "^11.1.1",
+        "husky": "^0.14.3",
+        "rimraf": "^2.6.2",
+        "standard-version": "^4.4.0",
+        "tslint": "^5.11.0",
+        "tslint-consistent-codestyle": "^1.13.3",
+        "typescript": "^3.0.1"
+    }
+}

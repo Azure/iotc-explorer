@@ -1,0 +1,72 @@
+{
+    "errors": {
+        "sasToken": {
+            "invalidPrefix": "Provided token is not a SharedAccessSignature token. Please provide a valid token",
+            "malformed": "Provided SAS token is malformed. Please provide a valid token",
+            "invalid": "Provided SAS token is invalid. Please provide a valid token",
+            "expired": "Provided SAS token is expired. Please provide a valid token"
+        },
+        "iotHub": {
+            "deviceNotFound": "Could not find twin for device with id %s",
+            "registryError": "Failed to fetch twin from IoT Hub with error '%s'"
+        },
+        "iotCentral": {
+            "invalidCredentials": "Invalid credentials. Please login and then retry this action",
+            "genericError": "IoT Central API call failed with message %s"
+        }
+    },
+    "general": {
+        "knownError": "Error: %s [%s]",
+        "unknownError": "Unknown Error: %s"
+    },
+    "commands": {
+        "login": {
+            "description": "Log in to an Azure IoT Central application",
+            "prompts": {
+                "token": "SAS Token"
+            },
+            "logs": {
+                "successWithExpiry": "Login successful. Session expires %s",
+                "successNoExpiry": "Login successful."
+            }
+        },
+        "getTwin": {
+            "description": "Get the IoT Hub device twin for a specific device",
+            "options": {
+                "hideMetadata": "Hide all device twin metadata"
+            }
+        },
+        "monitorMessages": {
+            "description": "Monitor messages being sent to a specific device (if device id is provided), or all devices",
+            "options": {
+                "startTime": "Only messages sent after start-time will be displayed. Defaults to current unix ms epoch time"
+            },
+            "logs": {
+                "monitoringDevice": "Monitoring messages from device %s...",
+                "monitoringAll": "Monitoring messages from all devices...",
+                "messageHeaderKnownDevice": "Device %s at %s",
+                "messageHeaderUnknownDevice": "Unknown device at %s"
+            }
+        },
+        "config": {
+            "description": "Manage configuration values for the CLI",
+            "commands": {
+                "get": {
+                    "description": "Retrieve the value for the requested configuration key"
+                },
+                "set": {
+                    "description": "Set the specified key to the given value"
+                },
+                "list": {
+                    "description": "List all configuration keys and values"
+                },
+                "delete": {
+                    "description": "Delete the specified configuration key, reverting to the default value"
+                }
+            }
+        }
+    },
+    "options": {
+        "raw": "Return the raw machine-readable output instead of pretty-printed output"
+    }
+}
