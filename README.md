@@ -16,8 +16,8 @@ line to install:
 npm install -g iotc-explorer
 ```
 
-*NOTE: You will typically need to run the install command with `sudo` in
-Unix-like environments.*
+> NOTE: You will typically need to run the install command with `sudo` in
+Unix-like environments.
 
 Once installed, you can run `iotc-explorer --help` to verify everything is
 working and get an overview of the available commands:
@@ -47,14 +47,16 @@ Below are some commands and common options that you can run when using
 
 ### Login
 
-Before you get going, you will want to have an administrator of your IoT Central application to get an access token for you to use. The administrator takes the following steps:
-- Go to **Administration/Access Tokens**. 
-- Click **Generate**, and enter a Token name.  
-- Click **Next**, and **copy the Token value**.
+Before you get going, you will want to have an administrator of your IoT
+Central application to get an access token for you to use. The administrator
+takes the following steps:
+ * Go to **Administration/Access Tokens**. 
+ * Click **Generate**, and enter a Token name.  
+ * Click **Next**, and **copy the Token value**.
+
 > NOTE: The Token value will only be shown once, so it must be copied before closing the dialog. After closing the dialog, it will never be shown again.
 
-You can then use that token to
-log in to the CLI by running:
+You can then use that token to log in to the CLI by running:
 
 ```sh
 iotc-explorer login "SharedAccessSignature sr=<your-resource>&sig=<your-signature>&skn=<your-key-name>&se=<your-expiry>"
