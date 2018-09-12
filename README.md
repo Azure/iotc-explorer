@@ -47,8 +47,13 @@ Below are some commands and common options that you can run when using
 
 ### Login
 
-Before you get going, you will want to have one of your IoT Central application
-administrators get a SAS token for you to use. You can then use that token to
+Before you get going, you will want to have an administrator of your IoT Central application to get an access token for you to use. The administrator takes the following steps:
+- Go to **Administration/Access Tokens**. 
+- Click **Generate**, and enter a Token name.  
+- Click **Next**, and **copy the Token value**.
+> NOTE: The Token value will only be shown once, so it must be copied before closing the dialog. After closing the dialog, it will never be shown again.
+
+You can then use that token to
 log in to the CLI by running:
 
 ```sh
