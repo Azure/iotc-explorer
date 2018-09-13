@@ -47,11 +47,11 @@ Below are some commands and common options that you can run when using
 
 ### Login
 
-Before you get going, you will want to have an administrator of your IoT
+Before you get going, you need to have an administrator of your IoT
 Central application to get an access token for you to use. The administrator
 takes the following steps:
  * Go to **Administration/Access Tokens**. 
- * Click **Generate**, and enter a Token name.  
+ * Click **Generate**, and enter a Token name. 
  * Click **Next**, and **copy the Token value**.
 
 > NOTE: The Token value will only be shown once, so it must be copied before closing the dialog. After closing the dialog, it will never be shown again.
@@ -59,7 +59,7 @@ takes the following steps:
 You can then use that token to log in to the CLI by running:
 
 ```sh
-iotc-explorer login "SharedAccessSignature sr=<your-resource>&sig=<your-signature>&skn=<your-key-name>&se=<your-expiry>"
+iotc-explorer login "<Token value>"
 ```
 
 If you would rather not have the token persisted in your shell history, you can
