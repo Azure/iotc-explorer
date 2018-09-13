@@ -10,6 +10,8 @@ import { CONFIG_FOLDER } from './constants';
 export type ConfigKey =
     'core.rejectUnauthorized' |
     'core.tokenCacheTtl' |
+    'log.rawOutput' |
+    'log.colorOutput' |
     'iotc.api.host' |
     'iotc.api.version' |
     'iotc.credentials.token' |
@@ -19,6 +21,8 @@ export type ConfigKey =
 const defaults: { [K in ConfigKey]?: unknown } = {
     'core.rejectUnauthorized': false,
     'core.tokenCacheTtl': 10 * 60 * 1000, // 10 minutes
+    'log.rawOutput': false,
+    'log.colorOutput': true,
     'iotc.api.host': 'api.azureiotcentral.com',
     'iotc.api.version': 'v1-beta'
 };

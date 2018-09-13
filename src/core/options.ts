@@ -15,8 +15,15 @@ export type raw = { raw: boolean; };
 export const raw: Options<raw> = {
     raw: {
         alias: 'r',
-        default: false,
         describe: resources.options.raw,
         type: 'boolean'
+    }
+};
+
+export type color = { color: boolean; };
+export const color: Options<color> = {
+    color: {
+        describe: resources.options.color,
+        type: 'boolean',
     }
 };

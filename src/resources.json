@@ -30,6 +30,10 @@
                 "successNoExpiry": "Login successful."
             }
         },
+        "logout": {
+            "description": "Log out of the Azure IoT Central application by clearing the saved login token",
+            "success": "Successfully logged out"
+        },
         "getTwin": {
             "description": "Get the IoT Hub device twin for a specific device",
             "options": {
@@ -55,18 +59,21 @@
                     "description": "Retrieve the value for the requested configuration key"
                 },
                 "set": {
-                    "description": "Set the specified key to the given value"
+                    "description": "Set the specified key to the given value",
+                    "success": "Successfully set the value"
                 },
                 "list": {
                     "description": "List all configuration keys and values"
                 },
                 "delete": {
-                    "description": "Delete the specified configuration key, reverting to the default value"
+                    "description": "Delete the specified configuration key, reverting to the default value",
+                    "success": "Successfully deleted the value"
                 }
             }
         }
     },
     "options": {
-        "raw": "Return the raw machine-readable output instead of pretty-printed output"
+        "raw": "Return the raw machine-readable output instead of pretty-printed output",
+        "color": "Allows you to turn on/off the color for output. Can be specified as --no-color, or --color false, to turn off the color."
     }
 }

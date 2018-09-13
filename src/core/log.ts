@@ -3,21 +3,30 @@
  * Licensed under the MIT License.
  */
 
-import * as prettyjson from 'prettyjson';
+import * as jsome from 'jsome';
 import stringWidth = require('string-width');
 import * as util from 'util';
 
 import * as resources from '../resources.json';
 
-import { DEFAULT_CLI_WIDTH, DIVIDER_CHAR, MIN_DIVIDER_PAD } from './constants';
+import * as config from './config';
+import { DEFAULT_CLI_WIDTH, DIVIDER_CHAR, MIN_DIVIDER_PAD, STRING_COLOR } from './constants';
 import CliError from './error';
 import * as opts from './options';
 
 export default class Log {
     private _raw: boolean;
+    private _color: boolean;
 
-    constructor(options?: Partial<opts.raw>) {
-        this._raw = !!(options && options.raw);
+    constructor(options?: Partial<opts.raw> & Partial<opts.color>) {
+        // If raw/color option is not specified, use default value from config.
+        // Otherwise, use the given value.
+        this._raw = !options || options.raw == null
+            ? config.get('log.rawOutput') as boolean
+            : options.raw;
+        this._color = !options || options.color == null
+            ? config.get('log.colorOutput') as boolean
+            : options.color;
     }
 
     info(message: string) {
@@ -38,7 +47,9 @@ export default class Log {
         if (this._raw) {
             console.log(JSON.stringify(value));
         } else {
-            console.log(prettyjson.render(value));
+            jsome.colors.str = STRING_COLOR;
+            jsome.params.colored = this._color;
+            jsome(value);
         }
     }
 

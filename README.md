@@ -29,6 +29,8 @@ Commands:
   iotc-explorer config                       Manage configuration values for the CLI
   iotc-explorer get-twin <deviceId>          Get the IoT Hub device twin for a specific device
   iotc-explorer login [token]                Log in to an Azure IoT Central application
+  iotc-explorer logout                       Log out of the Azure IoT Central application by clearing
+                                             the saved login token
   iotc-explorer monitor-messages [deviceId]  Monitor messages being sent to a specific device (if
                                              device id is provided), or all devices
 
@@ -90,6 +92,13 @@ the `--raw` option to the command:
 iotc-explorer monitor-messages --raw
 ```
 
+You can also turn off colored output by adding the `--no-color` option
+to the command:
+
+```
+iotc-explorer monitor-messages --no-color
+```
+
 ### Get Device Twin
 
 You can use the `get-twin` command to get the contents of the twin for an IoT
@@ -104,6 +113,39 @@ passing the `--raw` option:
 
 ```
 iotc-explorer get-twin <your-device-id> --raw
+```
+
+As with `monitor-messages`, you can also turn off colored output by
+passing the `--no-color` option:
+
+```
+iotc-explorer get-twin <your-device-id> --no-color
+```
+
+### Config
+
+To set, get, remove or list config settings, run the following commands:
+
+```
+iotc-explorer config set <key> <value>
+iotc-explorer config get <key>
+iotc-explorer config delete <key>
+iotc-explorer config list
+```
+
+#### Allowed config values:
+
+| Config key         | Config value type   | Description                                                                                            |
+|--------------------|---------------------|--------------------------------------------------------------------------------------------------------|
+| `core.colorOutput` | `boolean`           | Default value on whether to print JSON data in colored format. Can be overwritten or an individual CLI call by setting `--color`/`--no-color` option. |
+| `core.rawOutput`   | `boolean`           | Default value on whether to print JSON data in raw format. Can be overwritten for an individual CLI call by setting `--raw`/`--no-raw` option. |
+
+### Logout
+
+To remove your saved login credentials, run the following command:
+
+```
+iotc-explorer logout
 ```
 
 ## Contributing

@@ -7,6 +7,7 @@ import * as inquirer from 'inquirer';
 import * as querystring from 'querystring';
 import * as util from 'util';
 
+import { generateSasTokens } from '../core/api';
 import command from '../core/command';
 import * as config from '../core/config';
 import { SAS_TOKEN_PREFIX } from '../core/constants';
@@ -66,21 +67,27 @@ export = command<{ token?: string }>({
             );
         }
 
-        // If there is a token expiry, it cannot be in the past
-        if (parsed.se && Number(parsed.se) < Date.now()) {
-            throw new CliError(
-                invalidSasTokenCode,
-                resources.errors.sasToken.expired
-            );
-        }
-
-        // Set the relevant information in the configuration store
-        config.set('iotc.credentials.token', inputToken);
-        config.set('iotc.credentials.application', parsed.sr);
-
         // Delete any cached hub credentials we have as they may be pointing to
         // the wrong place
         config.del('iotc.credentials.hubs');
+
+        // Save old information in case token validation fails, and we need to revert
+        const prevInputToken = config.get('iotc.credentials.token') as string | null;
+        const prevApplication = config.get('iotc.credentials.application') as string | null;
+
+        // Update the relevant information, so generateSasTokens uses the new token
+        config.set('iotc.credentials.token', inputToken);
+        config.set('iotc.credentials.application', parsed.sr);
+
+        try {
+            // Generate SAS tokens to check the validity of the input token
+            await generateSasTokens();
+        } catch (e) {
+            // If token validation fails, revert the saved
+            config.set('iotc.credentials.token', prevInputToken);
+            config.set('iotc.credentials.application', prevApplication);
+            throw e;
+        }
 
         // Inform the user
         log.info(

@@ -9,3 +9,5 @@ export const CONFIG_FOLDER = 'iotc-explorer';
 export const DEFAULT_CLI_WIDTH = 80;
 export const DIVIDER_CHAR = '=';
 export const MIN_DIVIDER_PAD = 5;
+
+export const STRING_COLOR = 'reset';

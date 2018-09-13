@@ -11,7 +11,7 @@ export = command<{ key: string; value: string; }>({
     command: 'set <key> <value>',
     describe: resources.commands.config.commands.set.description,
 
-    handler(args) {
+    handler(args, log) {
         let value: any;
         try {
             value = JSON.parse(args.value);
@@ -20,5 +20,6 @@ export = command<{ key: string; value: string; }>({
         }
 
         config.set(args.key as config.ConfigKey, value);
+        log.info(resources.commands.config.commands.set.success);
     }
 });
