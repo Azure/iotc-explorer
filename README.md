@@ -137,8 +137,8 @@ iotc-explorer config list
 
 | Config key         | Config value type   | Description                                                                                            |
 |--------------------|---------------------|--------------------------------------------------------------------------------------------------------|
-| `core.colorOutput` | `boolean`           | Default value on whether to print JSON data in colored format. Can be overwritten or an individual CLI call by setting `--color`/`--no-color` option. |
-| `core.rawOutput`   | `boolean`           | Default value on whether to print JSON data in raw format. Can be overwritten for an individual CLI call by setting `--raw`/`--no-raw` option. |
+| `log.color` | `boolean`           | Default value on whether to print JSON data in colored format. Can be overwritten or an individual CLI call by setting `--color`/`--no-color` option. |
+| `log.raw`   | `boolean`           | Default value on whether to print JSON data in raw format. Can be overwritten for an individual CLI call by setting `--raw`/`--no-raw` option. |
 
 ### Logout
 

@@ -7,7 +7,7 @@ import * as inquirer from 'inquirer';
 import * as querystring from 'querystring';
 import * as util from 'util';
 
-import { generateSasTokens } from '../core/api';
+import { generateSasTokens, IotHubSasTokens } from '../core/api';
 import command from '../core/command';
 import * as config from '../core/config';
 import { SAS_TOKEN_PREFIX } from '../core/constants';
@@ -67,13 +67,14 @@ export = command<{ token?: string }>({
             );
         }
 
+        // Save old information in case token validation fails, and we need to revert
+        const prevInputToken = config.get('iotc.credentials.token') as string | undefined;
+        const prevApplication = config.get('iotc.credentials.application') as string | undefined;
+        const prevIotHubToken = config.get('iotc.credentials.hubs') as IotHubSasTokens | undefined;
+
         // Delete any cached hub credentials we have as they may be pointing to
         // the wrong place
         config.del('iotc.credentials.hubs');
-
-        // Save old information in case token validation fails, and we need to revert
-        const prevInputToken = config.get('iotc.credentials.token') as string | null;
-        const prevApplication = config.get('iotc.credentials.application') as string | null;
 
         // Update the relevant information, so generateSasTokens uses the new token
         config.set('iotc.credentials.token', inputToken);
@@ -86,6 +87,7 @@ export = command<{ token?: string }>({
             // If token validation fails, revert the saved
             config.set('iotc.credentials.token', prevInputToken);
             config.set('iotc.credentials.application', prevApplication);
+            config.set('iotc.credentials.hubs', prevIotHubToken);
             throw e;
         }
 

@@ -16,4 +16,3 @@ export = command<{ key: string; }>({
         log.info(resources.commands.config.commands.delete.success);
     }
 });
-
