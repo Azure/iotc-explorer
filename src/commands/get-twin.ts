@@ -12,7 +12,7 @@ import CliError from '../core/error';
 import * as opts from '../core/options';
 import * as resources from '../resources.json';
 
-export = command<{ deviceId: string }, { 'hide-metadata': boolean } & opts.raw>({
+export = command<{ deviceId: string }, { 'hide-metadata': boolean } & opts.raw & opts.color>({
     command: 'get-twin <deviceId>',
     describe: resources.commands.getTwin.description,
 
@@ -23,7 +23,8 @@ export = command<{ deviceId: string }, { 'hide-metadata': boolean } & opts.raw>(
             type: 'boolean',
             default: false
         },
-        ...opts.raw
+        ...opts.raw,
+        ...opts.color,
     },
 
     async handler(args, log) {

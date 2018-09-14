@@ -11,7 +11,7 @@ import command from '../core/command';
 import * as opts from '../core/options';
 import * as resources from '../resources.json';
 
-export = command<{ deviceId?: string; }, { 'start-time': number } & opts.raw>({
+export = command<{ deviceId?: string; }, { 'start-time': number } & opts.raw & opts.color>({
     command: 'monitor-messages [deviceId]',
     describe: resources.commands.monitorMessages.description,
 
@@ -21,7 +21,8 @@ export = command<{ deviceId?: string; }, { 'start-time': number } & opts.raw>({
             type: 'number',
             default: Date.now()
         },
-        ...opts.raw
+        ...opts.raw,
+        ...opts.color,
     },
 
     async handler(args, log): Promise<void> {
