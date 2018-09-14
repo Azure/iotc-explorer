@@ -17,7 +17,7 @@ export default class Log {
     private _raw: boolean;
     private _color: boolean;
 
-    constructor(options?: Partial<opts.raw> & Partial<opts.color>) {
+    constructor(options?: Partial<opts.raw & opts.color>) {
         // If raw/color option is not specified, use default value from config.
         // Otherwise, use the given value.
         this._raw = !!(options && options.raw);
