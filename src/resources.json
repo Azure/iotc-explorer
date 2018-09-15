@@ -56,7 +56,8 @@
             "description": "Manage configuration values for the CLI",
             "commands": {
                 "get": {
-                    "description": "Retrieve the value for the requested configuration key"
+                    "description": "Retrieve the value for the requested configuration key",
+                    "errorNotFound": "Invalid key"
                 },
                 "set": {
                     "description": "Set the specified key to the given value",
