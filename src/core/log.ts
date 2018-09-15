@@ -54,7 +54,7 @@ export default class Log {
         }
 
         const cliWidth = typeof (process.stdout as any).getWindowSize === 'function'
-            ? (process.stdout as any).getWindowSize()[0]
+            ? (process.stdout as any).getWindowSize()[0] - 1 // subtract one to avoid early wrapping
             : DEFAULT_CLI_WIDTH;
 
         if (!message) {
