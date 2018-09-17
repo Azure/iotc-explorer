@@ -85,11 +85,15 @@ export = command<{ token?: string }>({
             await generateSasTokens();
         } catch (e) {
             // If token validation fails, revert to the saved tokens
-            try {
+            if (prevInputToken) {
                 config.set('iotc.credentials.token', prevInputToken);
+            }
+            if (prevApplication) {
                 config.set('iotc.credentials.application', prevApplication);
+            }
+            if (prevIotHubToken) {
                 config.set('iotc.credentials.hubs', prevIotHubToken);
-            } catch { }
+            }
             throw e;
         }
 
