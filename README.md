@@ -211,8 +211,8 @@ git checkout master
 git pull
 npm test
 npm run release
+git push --follow-tags
 npm publish
-git push
 ```
 
 ### Contributor License Agreement
