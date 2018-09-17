@@ -157,7 +157,7 @@ iotc-explorer logout
 
 For your first time setup, make sure you've done the following:
 
- 1. Make sure you have the [prerequisites](#installing) installed.
+ 1. Make sure you have the [prerequisites](#prerequisites) installed.
  2. Clone this repository to wherever you want to develop.
  3. Run `cd iotc-explorer` to enter the repository folder.
  4. Run `npm install`, then `npm run build` to get things configured.
