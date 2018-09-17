@@ -59,8 +59,8 @@ export = command<{ token?: string }>({
             );
         }
 
-        // The token must have the sr, se, and skn properties to be valid
-        if (!parsed || !parsed.sr || !parsed.se || !parsed.skn) {
+        // The token must have the sr, sig, se, and skn properties to be valid
+        if (!parsed || !parsed.sr || !parsed.sig || !parsed.se || !parsed.skn) {
             throw new CliError(
                 invalidSasTokenCode,
                 resources.errors.sasToken.invalid
