@@ -1,5 +1,8 @@
 # iotc-explorer
 
+[![Build Status](https://travis-ci.org/Azure/iotc-explorer.svg?branch=master)](https://travis-ci.org/Azure/iotc-explorer)
+[![NPM version](https://img.shields.io/npm/v/iotc-explorer.svg)](https://www.npmjs.com/package/iotc-explorer)
+
 Command-line interface for interacting with Azure IoT Central devices and
 applications.
 
