@@ -3,7 +3,7 @@
  * Licensed under the MIT License.
  */
 
-import { EventHubClient, TokenType } from 'azure-event-hubs';
+import { EventHubClient, TokenType } from '@azure/event-hubs';
 import * as util from 'util';
 
 import * as api from '../core/api';
