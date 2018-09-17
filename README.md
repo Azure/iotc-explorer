@@ -209,7 +209,7 @@ changes back into the repository:
 ```
 git checkout master
 git pull
-npm run build-verify
+npm test
 npm run release
 npm publish
 git push
