@@ -71,8 +71,8 @@ function getContext() {
     // if iot central token does not exist, throw error
     if (!token || !appId) {
         throw new CliError(
-            'INVALID_CREDENTIALS',
-            resources.errors.iotCentral.invalidCredentials
+            'CREDENTIALS_NOT_FOUND',
+            resources.errors.iotCentral.credentialsNotFound,
         );
     }
     return { token, appId };
