@@ -11,6 +11,7 @@
             "registryError": "Failed to fetch twin from IoT Hub with error '%s'"
         },
         "iotCentral": {
+            "credentialsNotFound": "No credentials found. Please login and then retry this action",
             "invalidCredentials": "Invalid credentials. Please login and then retry this action",
             "genericError": "IoT Central API call failed with message %s"
         }
