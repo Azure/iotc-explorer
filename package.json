@@ -3,7 +3,7 @@
   "description": "CLI for interacting with Azure IoT Central devices and applications",
   "version": "1.0.1",
   "author": "Microsoft",
-  "repository": "github:Azure/iotc-explorer"
+  "repository": "github:Azure/iotc-explorer",
   "bugs": "https://github.com/Azure/iotc-explorer/issues",
   "license": "MIT",
   "main": "./dist/iotc-explorer.js",
