@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@azure/event-hubs": "^1.0.2",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "azure-iothub": "^1.9.4",
     "conf": "^2.0.0",
     "get-caller-file": "^2.0.0",
