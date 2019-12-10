@@ -1,8 +1,6 @@
 
 # PLEASE NOTE, THIS PROJECT HAS BEEN DEPRECATED
 
-[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
-
 *`iotc-explorer` is soon to be retired, and has been replaced by the [Azure CLI IoT 
 Extension](https://aka.ms/iotcli).*
 
