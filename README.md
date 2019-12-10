@@ -1,3 +1,9 @@
+
+# PLEASE NOTE, THIS PROJECT HAS BEEN DEPRECATED
+
+*`iotc-explorer` is soon to be retired, and has been replaced by the [Azure CLI IoT 
+Extension](https://aka.ms/iotcli).*
+
 # iotc-explorer
 
 [![Build Status](https://travis-ci.org/Azure/iotc-explorer.svg?branch=master)](https://travis-ci.org/Azure/iotc-explorer)
